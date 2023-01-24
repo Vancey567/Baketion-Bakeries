@@ -1,0 +1,51 @@
+<%- include("../partials/sidebar.ejs") %>
+    <section id="main-content">
+        <%- include("../partials/dashNav.ejs") %>
+            <div class="main-content-info w-full mt-12">
+                <section class=" h-screen-86px">
+                    <div class="px-12 py-10 ">
+                        <h1 class="font-bold text-2xl mb-4">All Orders</h1>
+                        <hr>
+                        <table class="w-full mx-auto px-16 ptable-auto bg-white italic -none">
+                            <thead>
+                                <tr class="">
+                                    <th class="px-4 py-2 text-left ">Orders</th>
+                                    <th class="px-4 py-2 text-left">Address</th>
+                                    <th class="px-4 py-2 text-left">Phone no.</th>
+                                    <th class="px-4 py-2 text-left">Status</th>
+                                    <th class="px-4 py-2 text-left">Placed at</th>
+                                    <th class="px-4 py-2 text-left">Payment Type</th>
+                                </tr>
+
+                            </thead>
+
+                            <% orders.forEach(function(order) { %>
+                                <tr class=" text-gray-600 border-b border-gray-200 hover:bg-gray-100">
+                                    <td class=" px-4 py-2 text-left">
+                                        <%= order.id %>
+                                    </td>
+                                    <td class=" px-4 py-2 text-left">
+                                        <%= order.address %>
+                                    </td>
+                                    <td class=" px-4 py-2 text-left">
+                                        <%= order.phone %>
+                                    </td>
+                                    <td class=" px-4 py-2 text-left">
+                                        <%= order.status %>
+                                    </td>
+                                    <td class=" px-4 py-2 text-left">
+                                        <%= moment(order.createdAt ).format('MM-DD-YYYY, h:mm:ss a')%>
+                                    </td>
+                                    <td class=" px-4 py-2 text-left">
+                                        <%= order.paymentType %>
+                                    </td>
+
+
+                                </tr>
+
+                                <% }) %>
+                        </table>
+                    </div>
+                </section>
+            </div>
+    </section>
