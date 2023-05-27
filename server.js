@@ -25,7 +25,7 @@ const PORT = process.env.PORT || 8000
 
 // connecting to Database
 // const url = 'mongodb://localhost/cake';
-const url = 'mongodb+srv://jay:1234@cluster0.pcsjt.mongodb.net/?retryWrites=true&w=majority';
+const url = process.env.DB_URL;
 mongoose.connect(url, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false });
 const connection = mongoose.connection;
 connection.once('open', () => {
@@ -56,7 +56,6 @@ app.use(session({
     store: mongoStore,
     saveUninitialized: false,
     cookie: { maxAge: 1000 * 60 * 60 * 24 }
-    // cookie: {maxAge: 1000 * 10} // It will expire in 15 sec
 }))
 
 // Passport config
