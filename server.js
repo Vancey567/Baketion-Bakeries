@@ -24,7 +24,8 @@ const admin = require('./app/http/middleware/admin')
 const PORT = process.env.PORT || 8000
 
 // connecting to Database
-const url = 'mongodb://localhost/cake';
+// const url = 'mongodb://localhost/cake';
+const url = 'mongodb+srv://jay:1234@cluster0.pcsjt.mongodb.net/?retryWrites=true&w=majority';
 mongoose.connect(url, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false });
 const connection = mongoose.connection;
 connection.once('open', () => {
